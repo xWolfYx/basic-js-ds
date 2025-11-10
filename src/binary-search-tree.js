@@ -81,11 +81,14 @@ class BinarySearchTree {
   }
 
   max() {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+    let currentNode = this.rootNode;
+
+    while (currentNode && currentNode.right) currentNode = currentNode.right;
+
+    return currentNode.data || null;
   }
 }
 
 module.exports = {
-  BinarySearchTree
+  BinarySearchTree,
 };
