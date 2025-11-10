@@ -14,9 +14,31 @@ class BinarySearchTree {
     return this.rootNode;
   }
 
-  add(/* data */) {
-    // Remove line below and write your code here
-    throw new NotImplementedError('Not implemented');
+  add(data) {
+    const newNode = new Node(data);
+
+    if (!this.rootNode) {
+      this.rootNode = newNode;
+      return;
+    }
+
+    let currentNode = this.rootNode;
+
+    while (currentNode) {
+      if (data < currentNode.data) {
+        if (!currentNode.left) {
+          currentNode.left = newNode;
+          break;
+        } else currentNode = currentNode.left;
+      } else {
+        if (!currentNode.right) {
+          currentNode.right = newNode;
+          break;
+        } else {
+          currentNode = currentNode.right;
+        }
+      }
+    }
   }
 
   find(/* data */) {
